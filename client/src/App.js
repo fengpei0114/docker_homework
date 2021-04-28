@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   fetchAllData() {
-    fetch("/api/todolist")
+    fetch("http://localhost:8000/api/todolist")
       .then(response => {
         return response.json();
       })
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   deleteForm(id) {
-    fetch(`/api/todolist/${id}`, {
+    fetch(`http://localhost:8000/api/todolist/${id}`, {
       method: "DELETE",
     }).then(response => {
       if (response.status === 200) {
@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   editForm(e, id) {
-    fetch(`/api/todolist/${id}`, {
+    fetch(`http://localhost:8000/api/todolist/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   editChecked(id, content, checked) {
-    fetch(`/api/todolist/${id}`, {
+    fetch(`http://localhost:8000/api/todolist/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   reOrderList(itemsId) {
-    fetch(`/api/todolist/reorderlist`, {
+    fetch(`http://localhost:8000/api/todolist/reorderlist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   submitForm(e) {
-    fetch("/api/todolist", {
+    fetch("http://localhost:8000/api/todolist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
